@@ -12,7 +12,7 @@ const dispatch = useDispatch();
 //Funciones
 const nivel1 = () => {
   console.log('Se va al primer ejercicio');
-  dispatch(setNivel(5))
+  dispatch(setNivel(2))
   navigate('/operaciones')
 
 }
