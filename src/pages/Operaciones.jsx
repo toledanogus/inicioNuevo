@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getNivel } from '../store/thunks';
 
 export const Operaciones = () => {
 
@@ -7,7 +8,7 @@ export const Operaciones = () => {
 const {nivel} = useSelector ((state)=> state.generales);
 const [number1, setNumber1] = useState(null);
 const [number2, setNumber2] = useState(null);
-
+const dispatch = useDispatch;
 
   // Funciones
 const lvone = () => {
@@ -23,6 +24,7 @@ const lvtwo = () => {
 
   //Efectos
 useEffect(() => {
+  dispatch(getNivel());
   if (nivel==1) {
     lvone();
   } else if (nivel==2){
