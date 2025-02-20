@@ -5,24 +5,20 @@ name: 'generales',
   initialState:{
     nombre: '',
     puntaje: 0,
-    nivel: 1,
+    nivelMax: 1,
+    nivelActual: 1,
   },
   reducers: {
-    increment: (state) => {
-      state.puntaje += 1;
-      state.nombre = 'Gus'
-    },
-    decrement: (state) => {
-        state.puntaje -=1
-    },
     setName: (state, action) => {
         state.nombre = action.payload
     },
-
-    setNivel: (state, action) => {
-        state.nivel = action.payload
-    }
+    setNivelMax: (state, action) => {
+        state.nivelMax = action.payload
+    },
+    setNivelActual: (state, action) => {
+        state.nivelActual = action.payload
+    },
   },
 })
 // Action creators are generated for each case reducer function
-export const { increment, decrement, setName, setNivel} = generalesSlice.actions
+export const { setName, setNivelMax, setNivelActual} = generalesSlice.actions

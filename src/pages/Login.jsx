@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setName } from "../store/slices/generalesSlice";
 import { useNavigate } from "react-router-dom";
+import { setNameThunks } from "../store/thunks";
 
 export const Login = () => {
   //Constantes
@@ -19,6 +20,7 @@ export const Login = () => {
     if (!nombre) {
         alert('Escribe tu nombre por favor')
     } else {
+      dispatch(setNameThunks());
         navigate("/Indice");
     }
     

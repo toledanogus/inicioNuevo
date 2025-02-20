@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getNivel } from '../store/thunks';
+// import { getLevel } from '../store/thunks';
 
 export const Operaciones = () => {
 
   //Constantes
-const {nivel} = useSelector ((state)=> state.generales);
+const {nivelActual, nivelMax} = useSelector ((state)=> state.generales);
 const [number1, setNumber1] = useState(null);
 const [number2, setNumber2] = useState(null);
-const dispatch = useDispatch;
+const dispatch = useDispatch();
 
   // Funciones
 const lvone = () => {
@@ -24,10 +24,10 @@ const lvtwo = () => {
 
   //Efectos
 useEffect(() => {
-  dispatch(getNivel());
-  if (nivel==1) {
+  // dispatch(getLevel());
+  if (nivelActual==1) {
     lvone();
-  } else if (nivel==2){
+  } else if (nivelActual==2){
     lvtwo();
   }
   }
@@ -40,7 +40,7 @@ useEffect(() => {
     <>
     
     <div>Operaciones</div>
-    <p>Estás en el nivel {nivel}</p>
+    <p>Nivel Máximo: {nivelMax}</p>
     <h3>{number1}</h3>
     <h3>+</h3>
     <h3>{number2}</h3>
