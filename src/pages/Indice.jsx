@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { setNivelActual } from "../store/slices/generalesSlice"
+import { setNivelActual, setNumeroDificultad } from "../store/slices/generalesSlice"
 import { useState } from "react"
 
 export const Indice = () => {
 //Constantes
-const {nombre, nivelMax} = useSelector ((state)=> state.generales)
+const {nombre, nivelMax, nivelActual} = useSelector ((state)=> state.generales)
 const navigate = useNavigate();
 const dispatch = useDispatch();
 const totalNiveles = Array.from({ length: 20 }, (_, index) => index + 1);

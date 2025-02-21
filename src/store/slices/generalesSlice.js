@@ -7,6 +7,7 @@ name: 'generales',
     puntaje: 0,
     nivelMax: 1,
     nivelActual: 1,
+    numeroDificultad: 9,
   },
   reducers: {
     setName: (state, action) => {
@@ -18,7 +19,10 @@ name: 'generales',
     setNivelActual: (state, action) => {
         state.nivelActual = action.payload
     },
+    setNumeroDificultad: (state, action) => {
+        state.numeroDificultad = action.payload
+    },
   },
 })
 // Action creators are generated for each case reducer function
-export const { setName, setNivelMax, setNivelActual} = generalesSlice.actions
+export const { setName, setNivelMax, setNivelActual, setNumeroDificultad} = generalesSlice.actions
