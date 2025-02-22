@@ -18,7 +18,8 @@ const [resultadoUsuario, setResultadoUsuario] = useState("");
 const [resultadoReal, setResultadoReal] = useState("");
 const [puntaje, setPuntaje] = useState(0);
 const [isProcessing, setIsProcessing] = useState(false);
-
+let audio = new Audio (sonido);
+let audio2 = new Audio (sonido2);
 
   // Funciones
 
@@ -33,7 +34,7 @@ const [isProcessing, setIsProcessing] = useState(false);
       setPuntaje(0);
     };   
   
-  const lvone = () => {
+  const operacion = () => {
     setIsProcessing(true);
     if (resultadoUsuario !== "" && resultadoReal == resultadoUsuario) {
       setPuntaje(puntaje + 1);
@@ -42,14 +43,12 @@ const [isProcessing, setIsProcessing] = useState(false);
       setNumber1(Math.floor(Math.random() * 89) + 11);
       setNumber2(Math.floor(Math.random() * numeroDificultad) + 1);
       setResultadoUsuario("");
-      let audio = new Audio (sonido);
-        audio.play();
-        audio.volume = 0.4;
+      audio.play();
+      audio.volume = 0.4;
     }
     else if (resultadoUsuario !== "" && resultadoReal !== resultadoUsuario){
-      let audio = new Audio (sonido2);
-        audio.play();
-        audio.volume = 0.4;
+      audio2.play();
+      audio2.volume = 0.4;
     }
     setIsProcessing(false);
   };
@@ -163,7 +162,7 @@ useEffect(() => {
         onChange={onInputChange}
         onKeyDown={(event) => {
           if (event.keyCode === 13) {
-            lvone();
+            operacion();
           }
         }}
       />
