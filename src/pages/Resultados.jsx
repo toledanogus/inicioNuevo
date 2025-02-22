@@ -11,7 +11,9 @@ const alIndice = () => {
   navigate('/indice');
 }
 
-
+const alLogin = () => {
+  navigate('/login');
+}
 //Efectos
 
 
@@ -23,6 +25,8 @@ const alIndice = () => {
     
     <div>Resultados</div>
     <button type="button" onClick={alIndice}>Ir al índice</button>
+    <br />
+    <button type="button" onClick={alLogin}>Usuario Diferente</button>
     
   </>
     

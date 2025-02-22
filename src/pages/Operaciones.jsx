@@ -27,7 +27,7 @@ const [isProcessing, setIsProcessing] = useState(false);
   };
 
   const inicial = () => {
-      setNumber1(Math.floor(Math.random() * 100) + 1);
+    setNumber1(Math.floor(Math.random() * 89) + 11);
       setNumber2(Math.floor(Math.random() * numeroDificultad) + 1);
       setResultadoUsuario("");
       setPuntaje(0);
@@ -39,7 +39,7 @@ const [isProcessing, setIsProcessing] = useState(false);
       setPuntaje(puntaje + 1);
       console.log(puntaje)
       
-      setNumber1(Math.floor(Math.random() * 100) + 1);
+      setNumber1(Math.floor(Math.random() * 89) + 11);
       setNumber2(Math.floor(Math.random() * numeroDificultad) + 1);
       setResultadoUsuario("");
       let audio = new Audio (sonido);
@@ -54,22 +54,7 @@ const [isProcessing, setIsProcessing] = useState(false);
     setIsProcessing(false);
   };
 
-// const lvtwo = () => {
-//   setNumber1(Math.floor(Math.random()*100)+1);
-//   setNumber2(Math.floor(Math.random()*100)+1);
-// }
 
-
-  //Efectos
-// useEffect(() => {
-//   // dispatch(getLevel());
-//   if (nivelActual==1) {
-//     lvone();
-//   } else if (nivelActual==2){
-//     lvtwo();
-//   }
-//   }
-// , [nivelActual]);
 
 //Efectos
 useEffect(() => {
@@ -110,7 +95,6 @@ useEffect(() => {
 
 useEffect(() => {
   setResultadoReal(number1 + number2);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [number1, number2]);
 
 useEffect(() => {
@@ -163,9 +147,15 @@ useEffect(() => {
     <div>Operaciones</div>
     <h2>{timer}</h2>
     <p>Nivel Máximo: {nivelMax}</p>
-    <h3>{number1}</h3>
-    <h3>+</h3>
-    <h3>{number2}</h3>
+
+    <div className="suma">
+        <span className="operador">+</span>
+        <div className="numeros">
+          <span className="numero">{number1}</span>
+          <span className="numero">{number2}</span>
+          <span className="linea"></span>
+        </div>
+    </div>
     <input
         type="number"
         id="number"
